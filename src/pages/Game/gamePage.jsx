@@ -4,6 +4,7 @@ export default function GamePage(){
 }
 
 /* 
+time left this turn
 tiles
 player icon
 turn end
@@ -16,4 +17,8 @@ movement/action effects
 tiles needed to escape cops and/or tiles to objective
 restart with same settings
 end early
+cards
+    name
+    effect
+    time cost
 */

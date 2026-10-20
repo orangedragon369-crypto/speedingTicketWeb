@@ -8,7 +8,7 @@ import FeedBack from './pages/FeedBack';
 import GameWL from './pages/Game/GameWL';
 
 export default function App() {
-  return(<div className='column'>
+  return(<div className='column app'>
     <Nav/>
     <div className='contents'>
       <Routes>

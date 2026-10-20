@@ -7,17 +7,21 @@ export default function StatsPage(){
 /* 
 personal
     score records
+        w/l ticket
     best score
+    best tile/turn
     personal total score
     fastest round won
     stats
+        tiles/turn total average
         most tiles moved in a single turn
         total tiles moved
         win rate
         total 
             speeding cost
             broken property
-            cars and pedestrians hit        cost and count
+            cars hit                cost and count
+            pedestrians hit         cost and count
             traffic laws broken         count
         cards played
         war crimes committed
@@ -28,13 +32,15 @@ global stats
     total score
     fastest round
     stats
+        tiles/turn total average
         most tiles moved in a single turn
         total tiles moved
         win rate
         total 
             speeding cost
             broken property
-            cars and pedestrians hit        cost and count
+            cars hit                cost and count
+            pedestrians hit         cost and count
             traffic laws broken         count
         cards played
         war crimes committed
