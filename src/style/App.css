@@ -1,4 +1,23 @@
-nav {
+nav, .row, .auth, .column {
   display: flex;
+}
+
+nav {
   justify-content: space-around;
+}
+
+nav, .ceter {
+  align-items: center;
+}
+
+.auth span {
+  padding: 7px;
+}
+.auth img {
+  width: 50px;
+  border-radius: 10px;
+}
+
+.column, .auth span {
+  flex-direction: column;
 }/*# sourceMappingURL=App.css.map */

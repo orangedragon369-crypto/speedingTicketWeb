@@ -1,14 +1,24 @@
 import './style/App.css';
 import { Route, Routes } from 'react-router-dom';
-import GamePage from './pages/gamePage';
+import GamePage from './pages/Game/gamePage';
 import Nav from './pages/Nav';
+import StatsPage from './pages/StatsPage';
+import StartPage from './pages/Game/StartPage';
+import FeedBack from './pages/FeedBack';
+import GameWL from './pages/Game/GameWL';
 
 export default function App() {
-  return(<div>
+  return(<div className='column'>
     <Nav/>
-    <Routes>
-      <Route path="/" element={<GamePage/>} />
-      <Route path='/stats' element={<></>} />
-    </Routes>
+    <div className='contents'>
+      <Routes>
+        <Route path='/' element={<StartPage/>} />
+        <Route path="/game" element={<GamePage/>} />
+        <Route path="/gamewl" element={<GameWL/>} />
+
+        <Route path='/stats' element={<StatsPage/>} />
+        <Route path='/feedback' element={<FeedBack/>} />
+      </Routes>
+    </div>
   </div>)
 }

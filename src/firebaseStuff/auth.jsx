@@ -32,10 +32,10 @@ export const Auth = ()=>{
 
     if(screenName==null)return(<button className="auth" onClick={()=>signInWithGoogle()}>signin</button>);
     else return(<div className="auth">
+        <img src={auth.currentUser.photoURL}/>
         <span className="auth">
             {screenName}
-            <img src={auth.currentUser.photoURL}/>
+            <button onClick={()=>logOut()}>signout</button>
         </span>
-        <button onClick={()=>logOut()}>signout</button>
     </div>);
 }
