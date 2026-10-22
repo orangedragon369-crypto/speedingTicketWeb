@@ -5,20 +5,22 @@ export default function Deck(){
     const [cardBank, setCardBank] = useState([]);
 
     useEffect(()=>{
-        let cards;
-        async()=>{
-            cards = localStorage.getItem('cardBank')!==null? localStorage.getItem('cardBank'): await getData("Cards");
+        const retrieve = async ()=>{
+            const cards = await getData("Cards");
+            console.log(cards)
+            setCardBank(cards);
         }
-        setCardBank(cards);
-        console.log(cards)
+        retrieve();
     }, [])
 
-    return(<div>
+    return(<div className="flow">
         {cardBank.map((card)=>{
-            return(<div>
-                {card.id}<br/>
-                {card.effect}<br/>
-                {card.cost}<br/>
+            return(<div className="column cards">
+                <div className="row">
+                    <div>{card.id}</div>
+                    <div>{card.cost}</div>
+                </div>
+                <div>{card.effect}</div>
             </div>);
         })}
     </div>);

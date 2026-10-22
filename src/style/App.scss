@@ -1,4 +1,4 @@
-nav, .row, .auth, .column{
+nav, .row, .auth, .column, .flow{
   display: flex;
 }
 
@@ -23,4 +23,14 @@ nav, .ceter{
 
 .column, .auth span{
   flex-direction: column;
+}
+
+.flow{
+  flex-wrap: row wrap;
+}
+
+.cards{
+  width: 50px;
+  height: 50px;
+  background-color: #aaa;
 }
