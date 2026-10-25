@@ -36,17 +36,20 @@ nav, .cards, .hint{
 .cards, .hint{
   border-radius: 7px;
 }
+
+.cards, .title, .between{
+  justify-content: space-between;
+}
+
 .cards{
   position: relative;
   width: 200px;
   height: 200px;
   background-color: #d1cfcf;
   margin: 7px;
-  justify-content: space-between;
 
   .title{
     width: 100%;
-    justify-content: space-between;
   }
 
   .hints{
@@ -64,8 +67,10 @@ nav, .cards, .hint{
 
       .hint{
         background-color: #f0efef;
-        width: 100px;
+        width: 175px;
         border-radius: 7px;
+        border: black solid 1px;
+        margin: 5px;
       }
     }
   }
