@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import getData from "../../firebaseStuff/callFirestore";
+import capitalize from "../../components/capitalize"
 
 export default function Deck(){
     const [cardBank, setCardBank] = useState([]);
@@ -11,26 +12,31 @@ export default function Deck(){
 
     const retrieveData = async ()=>{
         const hintToAdd = {};
+        const deck = {};
+        const cardPos = {};
         const cards = await getData("Cards");
         const hints = await getData("hints");
-        const deck = {};
 
         hints.map((data)=>hintToAdd[data.id] = data);
+        cards.map((data)=>{
+            deck[data.id] = 0;
+            cardPos[data.id] = data
+        });
         localStorage.setItem("hints", JSON.stringify(hintToAdd));
-        localStorage.setItem("deckOptions", JSON.stringify(cards));
+        localStorage.setItem("deckOptions", JSON.stringify(cardPos));
         localStorage.setItem("deck", JSON.stringify(deck));
-        cards.map((data)=>deck[data.id] = 0);
 
         setDeckSet(deck);
         setAllHints(hintToAdd);
-        setCardBank(cards);
+        setCardBank(cardPos);
     }
 
     const handleChange = (id, num) => {
-        setDeckSet({
+        if (num>parseInt(cardBank[id].maxCount)) alert("You cannot have more of that card.")
+        else {setDeckSet({
             ...deckSet,
             [id]: parseInt(num)
-        });
+        });}
     };
 
     useEffect(()=>{
@@ -42,22 +48,18 @@ export default function Deck(){
     }, [])
 
     useEffect(()=>{
-        // finish logic ***
-        setDeckSize(0)
-    }, [deckSet])
-
-    const capitalize = (words, result="")=>{
-        words.split("").map((letter, count)=>{
-            if (/[A-Z]/.test(letter)) result += " ";
-            count === 0 ? result += letter.toUpperCase(): result += letter;
+        let size = 0;
+        Object.keys(deckSet).map((key)=>{
+            size+=deckSet[key]
         })
-        return result
-    };
+        setDeckSize(size)
+    }, [deckSet])
 
     return(<>
         <div className="flow">
-            {cardBank.map((card, index)=>{
-                const id = capitalize(card.id)
+            {Object.keys(cardBank).map((card, index)=>{
+                const cardInfo = cardBank[card];
+                const id = capitalize(cardInfo.id)
                 const hints = {};
                 const hasHints = (data)=>{
                     if (data) {
@@ -69,18 +71,20 @@ export default function Deck(){
                 }
                 return(<div className="column cards" key={index}>
                     <div className="row title">
-                        <div>{id}</div>
-                        <div>{card.cost}</div>
+                        <div><b>{id}</b></div>
+                        <div>{cardInfo.cost}</div>
                     </div>
-                    <div>{card.effect}</div>
-                    <input 
-                        type="number"
-                        className="fillH"
-                        placeholder="Reply to comment"
-                        value={deckSet[card.id]}
-                        onChange={(e) => handleChange(card.id, e.target.value)}
-                    />
-                    {hasHints(card.hint)}
+                    <div>{cardInfo.effect}</div>
+                    <div>
+                        <input 
+                            type="number"
+                            className="fillH"
+                            placeholder="Reply to comment"
+                            value={deckSet[cardInfo.id]}
+                            onChange={(e) => handleChange(cardInfo.id, e.target.value)}
+                        /> <b>/ {cardInfo.maxCount}</b>
+                    </div>
+                    {hasHints(cardInfo.hint)}
                     <div className="hints">{Object.keys(hints).map((key)=>{
                         return(<div key={index+key} className="hint">
                             <div>{capitalize(key)}</div>
@@ -92,8 +96,15 @@ export default function Deck(){
         </div>
         <div className="row between">
             <button onClick={()=>retrieveData()}>Think you are missing card options? Click here to reload.</button>
-            <button onClick={()=>localStorage.setItem("deck", JSON.stringify(deckSet))}>Set as Current Deck</button>
-            <div>{deckSize}/{deckMax} if less than {deckMin} then red with note: `Must be at least ${deckMin} cards.`</div>
+            <button onClick={()=>{
+                if (deckSize<deckMin) alert( `Must be at least ${deckMin} cards.`);
+                else {
+                    localStorage.setItem("deck", JSON.stringify(deckSet))
+                    alert('Deck Saved.');
+                };
+            }}>Set as Current Deck</button>
+            <div>Minimum card count: {deckMin}</div>
+            <div>{deckSize}/{deckMax}</div>
         </div>
     </>);
 }

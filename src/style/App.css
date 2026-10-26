@@ -1,4 +1,4 @@
-nav, .row, .auth, .column, .flow {
+nav, .row, .auth, .column, .flow, .center, .centered {
   display: flex;
 }
 
@@ -8,6 +8,10 @@ nav {
 
 nav, .ceter {
   align-items: center;
+}
+
+.centered {
+  justify-content: center;
 }
 
 .auth span {
