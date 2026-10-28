@@ -28,7 +28,7 @@ nav, .ceter {
   flex-wrap: wrap;
 }
 
-nav, .cards, .hint, .auth span, .board {
+nav, .cards, .hint, .auth span {
   padding: 7px;
 }
 
