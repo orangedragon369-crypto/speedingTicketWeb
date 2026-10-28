@@ -4,6 +4,7 @@ nav, .row, .auth, .column, .flow, .center, .centered {
 
 nav {
   justify-content: space-around;
+  min-height: 100px;
 }
 
 nav, .ceter {
@@ -14,9 +15,6 @@ nav, .ceter {
   justify-content: center;
 }
 
-.auth span {
-  padding: 7px;
-}
 .auth img {
   width: 50px;
   border-radius: 10px;
@@ -30,7 +28,7 @@ nav, .ceter {
   flex-wrap: wrap;
 }
 
-nav, .cards, .hint {
+nav, .cards, .hint, .auth span, .board {
   padding: 7px;
 }
 
@@ -42,8 +40,11 @@ nav, .cards, .hint {
   justify-content: space-between;
 }
 
-.cards {
+.cards, .gamePage {
   position: relative;
+}
+
+.cards {
   width: 200px;
   height: 200px;
   background-color: #d1cfcf;
@@ -57,16 +58,12 @@ nav, .cards, .hint {
 }
 .cards:hover .hints {
   display: block;
-  position: absolute;
-  margin: inherit;
   top: 100%;
   left: 10px;
-  z-index: 2;
 }
 .cards:hover .hints .hint {
   background-color: #f0efef;
   width: 175px;
-  border-radius: 7px;
   border: black solid 1px;
   margin: 5px;
 }
@@ -74,4 +71,26 @@ nav, .cards, .hint {
 .start-page {
   gap: 7px;
   margin: 15px;
+}
+
+.hints, .topMenu, .bottomMenu {
+  z-index: 2;
+  position: absolute;
+  margin: 7px;
+}
+
+.contents {
+  height: calc(100vh - 114px);
+}
+
+.gamePage, .board {
+  height: 100%;
+}
+
+.bottomMenu {
+  bottom: 5px;
+}
+
+.tiles {
+  padding: 0px 20px 0px 20px;
 }/*# sourceMappingURL=App.css.map */

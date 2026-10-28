@@ -1,0 +1,67 @@
+main.jsx
+    browser router
+    root
+
+App.jsx
+    nav
+    routes
+    contents div
+
+pages
+    Nav.jsx
+        link to:
+            StatsPage
+            StartPage
+            FeedBack
+
+    StatsPage.jsx
+
+    FeedBack.jsx
+
+    Game
+        StartPage.jsx
+            deck visibility
+            changes page to game when ready
+            manages that all requirements are present
+
+        GamePage.jsx
+
+        GameWL.jsx
+
+        selectors
+            Deck.jsx
+                gets cards and hints
+                manages deck storage/saving
+                adding and removing cards from deck
+                makes sure the deck follows requirements
+
+            CarSelector.jsx
+                car visibility
+                gets cars
+                manages car choice and saving
+
+            LocationSelector.jsx
+                location visibility
+                gets locations
+                manages location choice
+
+            SpecialtySelector.jsx
+                specialty visibility
+                gets specialties
+                manages specialty choice
+            
+components
+    capitalize.jsx
+        stand alone function
+        gets a string and return with the first letter capitalized and every capital 
+        letter with a space in front to change camel case to normal sentence/name
+
+firebaseStuff
+    auth.jsx
+        manages login and display of who is logged in
+
+    callFirestore.jsx
+        takes a refference and return a list of data from firestore that it connects to
+
+    firbase.js
+        Initializes and manages the connection to firestore 

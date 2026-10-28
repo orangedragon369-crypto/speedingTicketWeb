@@ -2,7 +2,7 @@ import { signInWithPopup, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth, googleProvider } from "./firebase";
 
-export const Auth = ()=>{
+export const Login = ()=>{
     const [screenName, setScreenName] = useState(null);
 
     useEffect(() => {

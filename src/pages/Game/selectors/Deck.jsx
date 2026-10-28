@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import getData from "../../firebaseStuff/callFirestore";
-import capitalize from "../../components/capitalize"
+import getData from "../../../firebaseStuff/callFirestore";
+import capitalize from "../../../components/capitalize"
 
 export default function Deck(){
     const [cardBank, setCardBank] = useState([]);
     const [allHints, setAllHints] = useState({});
     const [deckSet, setDeckSet] = useState({})
     const [deckSize, setDeckSize] = useState(0);
+    const [emptyDeck, setEmptyDeck] = useState({});
     const deckMin = 10;
     const deckMax = 40;
 
@@ -22,10 +23,12 @@ export default function Deck(){
             deck[data.id] = 0;
             cardPos[data.id] = data
         });
+        localStorage.setItem("emptyDeck", JSON.stringify(deck));
         localStorage.setItem("hints", JSON.stringify(hintToAdd));
         localStorage.setItem("deckOptions", JSON.stringify(cardPos));
         localStorage.setItem("deck", JSON.stringify(deck));
 
+        setEmptyDeck(deck);
         setDeckSet(deck);
         setAllHints(hintToAdd);
         setCardBank(cardPos);
@@ -41,6 +44,7 @@ export default function Deck(){
 
     useEffect(()=>{
         if (localStorage.getItem('deckOptions')&&localStorage.getItem('hints')){
+            setEmptyDeck(JSON.parse(localStorage.getItem('emptyDeck')));
             setDeckSet(JSON.parse(localStorage.getItem('deck')));
             setAllHints(JSON.parse(localStorage.getItem('hints')));
             setCardBank(JSON.parse(localStorage.getItem('deckOptions')));
@@ -103,6 +107,19 @@ export default function Deck(){
                     alert('Deck Saved.');
                 };
             }}>Set as Current Deck</button>
+            <button onClick={()=>{
+                localStorage.setItem('deck', JSON.stringify(emptyDeck));
+                setDeckSet({
+                    brake: 3,
+                    gas: 6,
+                    inertia: 3,
+                    lightenTheLoad: 3,
+                    molotov: 3,
+                    takeoff: 1,
+                    timeSkip: 3,
+                    warp: 3,
+                })
+            }}>Reset Deck</button>
             <div>Minimum card count: {deckMin}</div>
             <div>{deckSize}/{deckMax}</div>
         </div>
