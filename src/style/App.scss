@@ -87,6 +87,10 @@ nav, .cards, .hint, .auth span{
   margin: 7px;
 }
 
+.topMenu, .bottomMenu{
+  width: calc(100vw - 14px);
+}
+
 .contents{
   height: calc(100vh - 114px);
 }
@@ -101,4 +105,8 @@ nav, .cards, .hint, .auth span{
 
 .tiles{
   padding: 0px 20px 0px 20px;
+}
+
+.layer0, .layer1, .layer2, .layer3{
+  width: 100%;
 }

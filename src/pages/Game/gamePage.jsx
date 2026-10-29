@@ -4,14 +4,16 @@ export default function GamePage(){
     const [turnCount, setTurnCount] = useState(0);
     const [tilesToEscape, setTilesToEscape] = useState(0);
     const [timeThisTurn, setTimeThisTurn] = useState(0);
-    //read local storage for deck and other info
+    const [width, setWidth] = useState([]);
+    const [height, setHeight] = useState([0, 1, 3]);
+
     return(<div className="gamePage">
         <div className="topMenu row between">
             <div>{turnCount}</div>
             <div>{tilesToEscape}</div>
             <button>display menu options</button>
         </div>
-        <div className="board">
+        <div className="board">{/* board and contents */}
             <div className="layer3 row">{/* layer 3 (top) */}
                 {/* card animation
                 other effects (explosions, cloud cover, etc) */}
@@ -20,13 +22,18 @@ export default function GamePage(){
                 {/*player icon
                 cars and other objects */}
             </div>
-            <div className="layer1 row">{/* layer 1 (bottom) */}
-
-                {/* tiles on map
-                movement/action effects */}
+            <div className="layer1 row">{/* layer 1 (bottom non-board) */}
+                {/* movement/action effects */}
+            </div>
+            <div className="layer0 row centered">
+                {width.map((side, i)=>{
+                    return(<div key={i} className='lane column'>
+                        {height.map((index)=>(<span key={'tile'+index+i}><img className="tile" src={side}/></span>))}
+                    </div>)
+                })}
             </div>
         </div>
-        <div className="bottomMenu row">
+        <div className="bottomMenu row between">
             <div className="column">
                 <div>{timeThisTurn}</div>
                 <div>deck</div>
