@@ -1,11 +1,27 @@
-import { useState } from "react"
+import { useState } from "react";
+import singleSolidWhite from "../../images/map/map00.png";
+import doubleSolidWhite from "../../images/map/map01.png";
+import singleDottedWhite from "../../images/map/map02.png";
+import doubleDottedWhite from "../../images/map/map03.png";
+import solidDottedWhite from "../../images/map/map04.png";
+import singleSolidYellow from "../../images/map/map05.png";
+import doubleSolidYellow from "../../images/map/map06.png";
+import singleDottedYellow from "../../images/map/map07.png";
+import doubleDottedYellow from "../../images/map/map08.png";
+import solidDottedYellow from "../../images/map/map09.png";
 
 export default function GamePage(){
     const [turnCount, setTurnCount] = useState(0);
     const [tilesToEscape, setTilesToEscape] = useState(0);
     const [timeThisTurn, setTimeThisTurn] = useState(0);
-    const [width, setWidth] = useState([]);
-    const [height, setHeight] = useState([0, 1, 3]);
+    const [width, setWidth] = useState([
+        [doubleSolidWhite, singleDottedWhite],
+        [solidDottedWhite, doubleDottedWhite],
+        [singleSolidWhite, singleSolidYellow],
+        [doubleSolidYellow, singleDottedYellow],
+        [doubleDottedYellow, solidDottedYellow],
+    ]);
+    const [height, setHeight] = useState([0, 1, 3, 4, 5]);
 
     return(<div className="gamePage">
         <div className="topMenu row between">
@@ -28,7 +44,10 @@ export default function GamePage(){
             <div className="layer0 row centered">
                 {width.map((side, i)=>{
                     return(<div key={i} className='lane column'>
-                        {height.map((index)=>(<span key={'tile'+index+i}><img className="tile" src={side}/></span>))}
+                        {height.map((index)=>(<span className="row tile" key={'tile'+index+i}>
+                            <img src={side[0]}/>
+                            <img className="mirrored" src={side[1]}/>
+                        </span>))}
                     </div>)
                 })}
             </div>

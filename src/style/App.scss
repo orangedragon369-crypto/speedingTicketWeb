@@ -91,6 +91,10 @@ nav, .cards, .hint, .auth span{
   width: calc(100vw - 14px);
 }
 
+.mirrored {
+  transform: scaleX(-1);
+}
+
 .contents{
   height: calc(100vh - 114px);
 }
@@ -103,10 +107,17 @@ nav, .cards, .hint, .auth span{
   bottom: 5px;
 }
 
-.tiles{
-  padding: 0px 20px 0px 20px;
+.board{
+  padding: 0px 40px 0px 40px;
 }
 
 .layer0, .layer1, .layer2, .layer3{
   width: 100%;
+}
+
+.tile{
+  width: 100px;
+  img{
+    width: 50%;
+  }
 }
