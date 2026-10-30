@@ -99,7 +99,7 @@ nav, .cards, .hint, .auth span{
   height: calc(100vh - 114px);
 }
 
-.gamePage, .board{
+.gamePage{
   height: 100%;
 }
 
@@ -108,16 +108,49 @@ nav, .cards, .hint, .auth span{
 }
 
 .board{
-  padding: 0px 40px 0px 40px;
+  padding: 50px;
+  position: relative;
+}
+
+.board, .layer0, .layer1, .layer2, .layer3{
+  height: calc(100% - 100px);
+  span{
+    gap: 1px;
+  }
 }
 
 .layer0, .layer1, .layer2, .layer3{
-  width: 100%;
+  width: calc(100% - 100px);
+  position: absolute;
+  top: 50px;
+}
+
+.layer0{
+  z-index: -2;
+}
+
+.layer1{
+  z-index: -1;
+}
+
+.layer2{
+  z-index: 0;
+}
+
+.layer3{
+  z-index: 1;
 }
 
 .tile{
   width: 100px;
   img{
     width: 50%;
+  }
+}
+
+.tileHalf{
+  width: 50px;
+  img{
+    width: 100%;
   }
 }

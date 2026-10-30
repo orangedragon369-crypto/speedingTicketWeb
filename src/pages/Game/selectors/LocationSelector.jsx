@@ -38,6 +38,10 @@ export default function LocationSelector(){
                     </div>
                     <button onClick={()=>{
                         setCurrentLocal(id);
+                        localStorage.setItem('road', JSON.stringify(localInfo.road.map((type=String)=>{
+                            console.log(type, type.split("/"))
+                            return type.split("/")
+                        })));
                         localStorage.setItem("local", JSON.stringify(localInfo.id))
                     }}>{currentLocal==id?"Saved":"Save as Location"}</button>
                 </div>);
