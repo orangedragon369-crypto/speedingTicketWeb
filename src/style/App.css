@@ -116,6 +116,10 @@ nav, .cards, .hint, .auth span {
   position: absolute;
   top: 50px;
 }
+.layer0 .contentImg, .layer1 .contentImg, .layer2 .contentImg, .layer3 .contentImg {
+  width: 100px;
+  height: 100px;
+}
 
 .layer0 {
   z-index: -2;
