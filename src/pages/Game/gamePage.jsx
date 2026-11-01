@@ -145,7 +145,7 @@ export default function GamePage(){
         <div className="topMenu row between">
             <div>{turnCount}</div>
             <div>{tilesToEscape}</div>
-            <button onClick={()=>setTileTo(1, 0, orangeItemTile, 1)}>display menu options</button>
+            <button onClick={()=>{}}>display menu options</button>
         </div>
         <div className="board">{/* board and contents */}
             <div className="layer3 row centered">{/* layer 3 (top) */}
@@ -179,6 +179,9 @@ export default function GamePage(){
 }
 
 /* 
+functions made:
+    setTileTo(lane, heigth, item to change it to, number of the layer(should only be 1, 2, or 3))
+
 top
     turn count
     tiles needed to escape cops and/or tiles to objective

@@ -25,6 +25,9 @@ pages
             manages that all requirements are present
 
         GamePage.jsx
+            renders map and objects
+            holds video game logic and runtime functions
+            has card functions 
 
         GameWL.jsx
 
@@ -38,12 +41,12 @@ pages
             CarSelector.jsx
                 car visibility
                 gets cars
-                manages car choice and saving
+                manages car choice
 
             LocationSelector.jsx
                 location visibility
                 gets locations
-                manages location choice
+                manages location choice and saving starting map
 
             SpecialtySelector.jsx
                 specialty visibility
