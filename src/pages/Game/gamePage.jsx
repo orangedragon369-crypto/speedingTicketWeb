@@ -28,7 +28,7 @@ export default function GamePage(){
         const localRoad = localStorage.getItem('road');
         return localRoad ? JSON.parse(localRoad) : []; 
     });
-    const [height, setHeight] = useState([0, 1, 3]);
+    const [height, setHeight] = useState([0, 1, 2]);
     const [layer1Contents, setLayer1Contents] = useState([])
     const [layer2Contents, setLayer2Contents] = useState([])
     const [layer3Contents, setLayer3Contents] = useState([])
@@ -112,18 +112,18 @@ export default function GamePage(){
     function Map(){
         return(<div className="layer0 row centered">
             <span className="column tileHalf">
-                {height.map((index)=>(<img key={'left'+index} src={doubleSolidWhite}/>))}
+                {height.map((i, index)=>(<img key={'left'+index} src={doubleSolidWhite}/>))}
             </span>
             {width.map((side, i)=>{
                 return(<span key={i} className='lane column'>
-                    {height.map((index)=>(<div className="row tile" key={'tile'+index+i}>
+                    {height.map((i, index)=>(<div className="row tile" key={'tile'+i+index}>
                         <img className="mirrored" src={findImg(side[0])}/>
                         <img src={findImg(side[1])}/>
                     </div>))}
                 </span>)
             })}
             <span className="column tileHalf" >
-                {height.map((index)=>(<img className="mirrored" key={'right'+index} src={doubleSolidWhite}/>))}
+                {height.map((i, index)=>(<img className="mirrored" key={'right'+index} src={doubleSolidWhite}/>))}
             </span>
         </div>)
     }
@@ -134,7 +134,7 @@ export default function GamePage(){
                 
                 return(<div key={'content lane'+index1} className="column">
                     {distance.map((item, index2)=>{
-                        return (<img className="contentImg" key={'content'+index1+index2} src={item}/>);
+                        return (<img className="contentImg" key={'contents'+index1+index2} src={item}/>);
                     })}
                 </div>)
             })}
@@ -145,7 +145,7 @@ export default function GamePage(){
         <div className="topMenu row between">
             <div>{turnCount}</div>
             <div>{tilesToEscape}</div>
-            <button onClick={()=>{}}>display menu options</button>
+            <button onClick={()=>setHeight(prevItems => [...prevItems, ])}>display menu options</button>
         </div>
         <div className="board">{/* board and contents */}
             <div className="layer3 row centered">{/* layer 3 (top) */}
