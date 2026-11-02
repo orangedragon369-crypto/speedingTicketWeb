@@ -43,8 +43,6 @@ export default function GamePage(){
     };
 
     function setTileTo(lane, height, item, layer){
-        console.log(lane, height, item, layer)
-        console.log(typeof(lane), typeof(height), typeof(item), typeof(layer))
         switch (layer){
             case 1:
                 setLayer1Contents(setTile(layer1Contents));
@@ -145,7 +143,7 @@ export default function GamePage(){
         <div className="topMenu row between">
             <div>{turnCount}</div>
             <div>{tilesToEscape}</div>
-            <button onClick={()=>setHeight(prevItems => [...prevItems, ])}>display menu options</button>
+            <button onClick={()=>setHeight(prevItems => [...prevItems, 3])}>display menu options</button>
         </div>
         <div className="board">{/* board and contents */}
             <div className="layer3 row centered">{/* layer 3 (top) */}
