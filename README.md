@@ -2,9 +2,15 @@
 
 This program is a running website at -[https://codenamestiles.web.app/](https://speedingticketwebversion.web.app/)
 
-## what it does
+
+## What it does
 This program is a turn by turn strategy game where you race to different location without getting caught.
 The turns progress via playing card and using time point each turn to activate abilities and change your position, speed, or condition.
+
+
+## Why I made Think program
+I wanted to make a game and this was the easiest place for me to start without help
+
 
 ## How To Run Locally
 
