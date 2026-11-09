@@ -24,18 +24,16 @@ export default function CarSelector(){
     return(<>
         <button onClick={()=>setCarsVisible(!carsVisible)}>Cars</button>
         {carsVisible?(<div className="flow">
-            {Object.keys(carData).map((car, index)=>{
-                const carInfo = carData[car];
-                const id = capitalize(carInfo.id)
+            {Object.values(carData).map((car, index)=>{
                 return(<div className="column cards" key={index}>
-                    <div>{id}</div>
-                    <div>Acceleration Mod: {carInfo.accelerationMod}</div>
-                    <div>Hit Points: {carInfo.hp}</div>
-                    <div>Weight: {carInfo.weight}</div>
+                    <div>{capitalize(car.id)}</div>
+                    <div>Acceleration Mod: {car.accelerationMod}</div>
+                    <div>Hit Points: {car.hp}</div>
+                    <div>Weight: {car.weight}</div>
                     <button onClick={()=>{
-                        setCurrentCar(id);
-                        localStorage.setItem("car", JSON.stringify(carInfo.id))
-                    }}>{currentCar==id?"Saved":"Save as car"}</button>
+                        setCurrentCar(car.id);
+                        localStorage.setItem("car", JSON.stringify(car.id))
+                    }}>{currentCar==car.id?"Saved":"Save as car"}</button>
                 </div>);
             })}
         </div>):<>{currentCar}</>}

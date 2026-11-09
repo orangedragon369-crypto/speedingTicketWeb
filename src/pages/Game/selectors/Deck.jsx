@@ -61,9 +61,7 @@ export default function Deck(){
 
     return(<>
         <div className="flow">
-            {Object.keys(cardBank).map((card, index)=>{
-                const cardInfo = cardBank[card];
-                const id = capitalize(cardInfo.id)
+            {Object.values(cardBank).map((card, index)=>{
                 const hints = {};
                 const hasHints = (data)=>{
                     if (data) {
@@ -73,22 +71,22 @@ export default function Deck(){
                         })
                     }
                 }
-                return(<div className="column cards" key={index}>
+                return(<div className="column cardsb deckBuild" key={index}>
                     <div className="row title">
-                        <div><b>{id}</b></div>
-                        <div>{cardInfo.cost}</div>
+                        <div><b>{capitalize(card.id)}</b></div>
+                        <div>{card.cost}</div>
                     </div>
-                    <div>{cardInfo.effect}</div>
+                    <div>{card.effect}</div>
                     <div>
                         <input 
                             type="number"
                             className="fillH"
                             placeholder="Reply to comment"
-                            value={deckSet[cardInfo.id]}
-                            onChange={(e) => handleChange(cardInfo.id, e.target.value)}
-                        /> <b>/ {cardInfo.maxCount}</b>
+                            value={deckSet[card.id]}
+                            onChange={(e) => handleChange(card.id, e.target.value)}
+                        /> <b>/ {card.maxCount}</b>
                     </div>
-                    {hasHints(cardInfo.hint)}
+                    {hasHints(card.hint)}
                     <div className="hints">{Object.keys(hints).map((key)=>{
                         return(<div key={index+key} className="hint">
                             <div>{capitalize(key)}</div>

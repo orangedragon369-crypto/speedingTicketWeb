@@ -1,4 +1,4 @@
-nav, .row, .auth, .column, .flow, .center, .centered {
+nav, .row, .auth, .column, .flow, .center, .centered, .menu {
   display: flex;
 }
 
@@ -7,7 +7,7 @@ nav {
   min-height: 100px;
 }
 
-nav, .ceter {
+nav, .center {
   align-items: center;
 }
 
@@ -44,21 +44,29 @@ nav, .cards, .hint, .auth span {
   position: relative;
 }
 
-.cards {
+.deckBuild {
   width: 200px;
   height: 200px;
+}
+
+.game {
+  width: 100px;
+  height: 150px;
+}
+
+.cards {
   background-color: #d1cfcf;
   margin: 7px;
 }
 .cards .title {
   width: 100%;
 }
-.cards .hints {
+.cards .hints, .cards .noSee {
   display: none;
 }
 .cards:hover .hints {
   display: block;
-  top: 100%;
+  bottom: 100%;
   left: 10px;
 }
 .cards:hover .hints .hint {
@@ -149,4 +157,32 @@ nav, .cards, .hint, .auth span {
 }
 .tileHalf img {
   width: 100%;
+}
+
+.deck, .discard {
+  width: 100px;
+  height: 100px;
+}
+
+.deck {
+  background-color: black;
+  color: white;
+}
+
+.discard {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.pauseMenu {
+  position: absolute;
+  z-index: 2;
+  background-color: orange;
+  border: 1px solid black;
+  top: 25%;
+  left: 35%;
+  padding: 10px;
+  width: 30%;
+  height: 30%;
+  visibility: visible;
 }/*# sourceMappingURL=App.css.map */

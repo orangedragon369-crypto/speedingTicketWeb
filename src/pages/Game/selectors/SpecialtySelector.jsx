@@ -25,17 +25,14 @@ export default function SpecialtySelector(){
     return(<>
         <button onClick={()=>setSpecialtiesVisible(!specialtiesVisible)}>Speciality</button>
         {specialtiesVisible?(<div className="flow">
-        {Object.keys(perks).map((perk, index)=>{
-            const perkInfo = perks[perk];
-            const id = capitalize(perkInfo.id)
+        {Object.values(perks).map((perk, index)=>{
             return(<div className="column cards" key={index}>
-                <div className="centered">{id}</div>
-                <div>{perkInfo.effect}</div>
-                <div>{}</div>
+                <div className="centered">{capitalize(perk.id)}</div>
+                <div>{perk.effect}</div>
                 <button onClick={()=>{
-                    setCurrentPerk(id);
-                    localStorage.setItem("specialty", JSON.stringify(id))
-                }}>{currentPerk==id?"Saved":"Save as Specialty"}</button>
+                    setCurrentPerk(perk.id);
+                    localStorage.setItem("specialty", JSON.stringify(perk.id))
+                }}>{currentPerk==perk.id?"Saved":"Save as Specialty"}</button>
             </div>);
         })}
     </div>):(<>{currentPerk}</>)}

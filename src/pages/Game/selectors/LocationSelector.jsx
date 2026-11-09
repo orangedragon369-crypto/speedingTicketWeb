@@ -24,26 +24,23 @@ export default function LocationSelector(){
     return(<>
         <button onClick={()=>setLocalVisible(!localsVisible)}>Locations</button>
         {localsVisible?(<div className="flow">
-            {Object.keys(localData).map((local, index)=>{
-                const localInfo = localData[local];
-                const id = capitalize(localInfo.id)
+            {Object.values(localData).map((local, index)=>{
                 return(<div className="column cards" key={index}>
-                    <div>{id}</div>
+                    <div>{capitalize(local.id)}</div>
                     <div className="column">
-                        {localInfo.features.map((feat, index)=>{
+                        {local.features.map((feat, index)=>{
                             return(<div key={index+"feat"} className="row">
-                                {feat}: {localInfo.effect[index]}
+                                {feat}: {local.effect[index]}
                             </div>)
                         })}
                     </div>
                     <button onClick={()=>{
-                        setCurrentLocal(id);
-                        localStorage.setItem('road', JSON.stringify(localInfo.road.map((type=String)=>{
-                            console.log(type, type.split("/"))
+                        setCurrentLocal(local.id);
+                        localStorage.setItem('road', JSON.stringify(local.road.map((type=String)=>{
                             return type.split("/")
                         })));
-                        localStorage.setItem("local", JSON.stringify(localInfo.id))
-                    }}>{currentLocal==id?"Saved":"Save as Location"}</button>
+                        localStorage.setItem("local", JSON.stringify(local.id))
+                    }}>{currentLocal==local.id?"Saved":"Save as Location"}</button>
                 </div>);
             })}
         </div>):<>{currentLocal}</>}
