@@ -30,6 +30,7 @@ import blueBike from "../../images/models/mapContents6.png";
 import capitalize from "../../components/capitalize";
 
 export default function GamePage(){
+
     const [menuDisplay, setMenuDisplay] = useState(true);
     const [hand, setHand] = useState([]);
     let shuffle = [];
@@ -277,6 +278,10 @@ export default function GamePage(){
         cardEffectFinder(perk.function, perk.arg)
     }
 
+    const endGame = ()=>{
+
+    }
+
     useEffect(()=>{
         if (!addedPerk){
             addPerk();
@@ -469,6 +474,7 @@ export default function GamePage(){
 
 /* To Do:
 logic
+    add sanity check to localstorage and switch pages with massage if fail
     finish play card function
     add car generation on the road
     add perk application 
@@ -477,6 +483,7 @@ logic
     add score increase, decrease, and mod bonus logic and triggers
     add number labels
     add time spending logic
+    endGame logic
 
 styling
     add page styling color consistency

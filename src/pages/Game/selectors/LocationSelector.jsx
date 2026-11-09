@@ -25,7 +25,7 @@ export default function LocationSelector(){
         <button onClick={()=>setLocalVisible(!localsVisible)}>Locations</button>
         {localsVisible?(<div className="flow">
             {Object.values(localData).map((local, index)=>{
-                return(<div className="column cards" key={index}>
+                return(<div className="column cards deckBuild" key={index}>
                     <div>{capitalize(local.id)}</div>
                     <div className="column">
                         {local.features.map((feat, index)=>{

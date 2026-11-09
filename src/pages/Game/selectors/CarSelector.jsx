@@ -25,7 +25,7 @@ export default function CarSelector(){
         <button onClick={()=>setCarsVisible(!carsVisible)}>Cars</button>
         {carsVisible?(<div className="flow">
             {Object.values(carData).map((car, index)=>{
-                return(<div className="column cards" key={index}>
+                return(<div className="column cards deckBuild" key={index}>
                     <div>{capitalize(car.id)}</div>
                     <div>Acceleration Mod: {car.accelerationMod}</div>
                     <div>Hit Points: {car.hp}</div>

@@ -26,7 +26,7 @@ export default function SpecialtySelector(){
         <button onClick={()=>setSpecialtiesVisible(!specialtiesVisible)}>Speciality</button>
         {specialtiesVisible?(<div className="flow">
         {Object.values(perks).map((perk, index)=>{
-            return(<div className="column cards" key={index}>
+            return(<div className="column cards deckBuild" key={index}>
                 <div className="centered">{capitalize(perk.id)}</div>
                 <div>{perk.effect}</div>
                 <button onClick={()=>{

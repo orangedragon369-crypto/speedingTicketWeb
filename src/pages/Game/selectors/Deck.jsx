@@ -71,7 +71,7 @@ export default function Deck(){
                         })
                     }
                 }
-                return(<div className="column cardsb deckBuild" key={index}>
+                return(<div className="column cards deckBuild" key={index}>
                     <div className="row title">
                         <div><b>{capitalize(card.id)}</b></div>
                         <div>{card.cost}</div>
